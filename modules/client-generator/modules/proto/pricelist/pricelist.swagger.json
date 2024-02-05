@@ -1,0 +1,1645 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "pricelist/service.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "PriceList"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/pricelist.PriceList/CreatePriceList": {
+      "post": {
+        "operationId": "PriceList_CreatePriceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistCreatePriceListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistCreatePriceListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/DeletePriceListItems": {
+      "post": {
+        "operationId": "PriceList_DeletePriceListItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistDeletePriceListItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistDeletePriceListItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/GetFullPriceItemsByPricelistId": {
+      "post": {
+        "operationId": "PriceList_GetFullPriceItemsByPricelistId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistGetFullPriceItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistGetFullPriceItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/GetPriceItemsByPriceListItemIds": {
+      "post": {
+        "operationId": "PriceList_GetPriceItemsByPriceListItemIds",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceItemsByPriceListItemIdsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceItemsByPriceListItemIdsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/GetPriceList": {
+      "post": {
+        "operationId": "PriceList_GetPriceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/GetPriceListByCode": {
+      "post": {
+        "operationId": "PriceList_GetPriceListByCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceListByCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceListByCodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/GetPriceListItems": {
+      "post": {
+        "operationId": "PriceList_GetPriceListItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceListItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPriceListItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/GetPricesItems": {
+      "post": {
+        "operationId": "PriceList_GetPricesItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPricesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistGetPricesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/ListFullPriceItemsByPricelistId": {
+      "post": {
+        "operationId": "PriceList_ListFullPriceItemsByPricelistId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistListFullPriceItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistListFullPriceItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/ListPriceLists": {
+      "post": {
+        "operationId": "PriceList_ListPriceLists",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistListPriceListsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistListPriceListsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/SetPriceListItems": {
+      "post": {
+        "operationId": "PriceList_SetPriceListItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistSetPriceListItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistSetPriceListItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    },
+    "/pricelist.PriceList/UpdatePriceList": {
+      "post": {
+        "operationId": "PriceList_UpdatePriceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pricelistUpdatePriceListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pricelistUpdatePriceListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PriceList"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ListPriceListsRequestFilter": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "currencyFilter": {
+          "$ref": "#/definitions/pricelistCurrencyFilter"
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "deliveredDutyPaid": {
+          "type": "boolean"
+        },
+        "segmentsFilter": {
+          "$ref": "#/definitions/pricelistSegmentFilter"
+        },
+        "marketsFilter": {
+          "$ref": "#/definitions/pricelistMarketFilter"
+        },
+        "channelsFilter": {
+          "$ref": "#/definitions/pricelistChannelFilter"
+        },
+        "typeFilter": {
+          "$ref": "#/definitions/pricelistPriceListTypeFilter"
+        },
+        "isSystem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ListPriceListsResponsePriceList": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "deliveredDutyPaid": {
+          "type": "boolean"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "$ref": "#/definitions/pricelistPriceListType"
+        },
+        "isSystem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pricelistChannelFilter": {
+      "type": "object",
+      "properties": {
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/pricelistFilterCondition"
+        }
+      }
+    },
+    "pricelistCreatePriceListRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "code": {
+          "type": "string",
+          "title": "required unique by tenant_id"
+        },
+        "name": {
+          "type": "string",
+          "title": "required"
+        },
+        "description": {
+          "type": "string",
+          "title": "default: empty"
+        },
+        "isActive": {
+          "type": "boolean",
+          "title": "default value: false"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "title": "default value: false"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency",
+          "title": "required"
+        },
+        "vatIncluded": {
+          "type": "boolean",
+          "title": "default value: false"
+        },
+        "deliveredDutyPaid": {
+          "type": "boolean",
+          "title": "default value: false"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "$ref": "#/definitions/pricelistPriceListType"
+        },
+        "isSystem": {
+          "type": "boolean",
+          "title": "default value: false"
+        }
+      }
+    },
+    "pricelistCreatePriceListResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistCurrency": {
+      "type": "string",
+      "enum": [
+        "XXX",
+        "ALL",
+        "DZD",
+        "ARS",
+        "AUD",
+        "BSD",
+        "BHD",
+        "BDT",
+        "AMD",
+        "BBD",
+        "BMD",
+        "BTN",
+        "BOB",
+        "BWP",
+        "BZD",
+        "SBD",
+        "BND",
+        "MMK",
+        "BIF",
+        "KHR",
+        "CAD",
+        "CVE",
+        "KYD",
+        "LKR",
+        "CLP",
+        "CNY",
+        "COP",
+        "KMF",
+        "CRC",
+        "HRK",
+        "CUP",
+        "CZK",
+        "DKK",
+        "DOP",
+        "SVC",
+        "ETB",
+        "ERN",
+        "FKP",
+        "FJD",
+        "DJF",
+        "GMD",
+        "GIP",
+        "GTQ",
+        "GNF",
+        "GYD",
+        "HTG",
+        "HNL",
+        "HKD",
+        "HUF",
+        "ISK",
+        "INR",
+        "IDR",
+        "IRR",
+        "IQD",
+        "ILS",
+        "JMD",
+        "JPY",
+        "KZT",
+        "JOD",
+        "KES",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KGS",
+        "LAK",
+        "LBP",
+        "LSL",
+        "LRD",
+        "LYD",
+        "LTL",
+        "MOP",
+        "MWK",
+        "MYR",
+        "MVR",
+        "MRO",
+        "MUR",
+        "MXN",
+        "MNT",
+        "MDL",
+        "MAD",
+        "OMR",
+        "NAD",
+        "NPR",
+        "ANG",
+        "AWG",
+        "VUV",
+        "NZD",
+        "NIO",
+        "NGN",
+        "NOK",
+        "PKR",
+        "PAB",
+        "PGK",
+        "PYG",
+        "PEN",
+        "PHP",
+        "QAR",
+        "RUB",
+        "RWF",
+        "SHP",
+        "STD",
+        "SAR",
+        "SCR",
+        "SLL",
+        "SGD",
+        "VND",
+        "SOS",
+        "ZAR",
+        "SSP",
+        "SZL",
+        "SEK",
+        "CHF",
+        "SYP",
+        "THB",
+        "TOP",
+        "TTD",
+        "AED",
+        "TND",
+        "UGX",
+        "MKD",
+        "EGP",
+        "GBP",
+        "TZS",
+        "USD",
+        "UYU",
+        "UZS",
+        "WST",
+        "YER",
+        "TWD",
+        "CUC",
+        "ZWL",
+        "TMT",
+        "GHS",
+        "VEF",
+        "SDG",
+        "UYI",
+        "RSD",
+        "MZN",
+        "AZN",
+        "RON",
+        "CHE",
+        "CHW",
+        "TRY",
+        "XAF",
+        "XCD",
+        "XOF",
+        "XPF",
+        "XBA",
+        "XBB",
+        "XBC",
+        "XBD",
+        "XAU",
+        "XDR",
+        "XAG",
+        "XPT",
+        "XPD",
+        "XUA",
+        "ZMW",
+        "SRD",
+        "MGA",
+        "COU",
+        "AFN",
+        "TJS",
+        "AOA",
+        "BYR",
+        "BGN",
+        "CDF",
+        "BAM",
+        "EUR",
+        "MXV",
+        "UAH",
+        "GEL",
+        "BOV",
+        "PLN",
+        "BRL",
+        "CLF",
+        "XSU",
+        "USN"
+      ],
+      "default": "XXX",
+      "description": "Stands for Albania, not all ;-)",
+      "title": "- XXX: XXX = 999; //Changed to 0 because proto3 requires the default to be 0\n - ALL: XTS = 963; //Codes specifically reserved for testing purposes"
+    },
+    "pricelistCurrencyFilter": {
+      "type": "object",
+      "properties": {
+        "currencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pricelistCurrency"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/pricelistFilterCondition"
+        }
+      }
+    },
+    "pricelistDeletePriceListItemsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "id": {
+          "type": "string",
+          "title": "required"
+        },
+        "itemsGrn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pricelistDeletePriceListItemsResponse": {
+      "type": "object"
+    },
+    "pricelistFilterCondition": {
+      "type": "string",
+      "enum": [
+        "IN",
+        "NOT_IN"
+      ],
+      "default": "IN"
+    },
+    "pricelistGetFullPriceItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "itemGrn": {
+          "type": "string"
+        },
+        "basePrice": {
+          "$ref": "#/definitions/pricelistMoney"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistGetFullPriceItemPrice"
+          }
+        },
+        "hasTierPrices": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pricelistGetFullPriceItemPrice": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/pricelistMoney"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "startAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "order": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "basePrice": {
+          "$ref": "#/definitions/pricelistMoney"
+        }
+      }
+    },
+    "pricelistGetFullPriceItemsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "pricelistId": {
+          "type": "string",
+          "title": "required"
+        },
+        "itemsGrn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "required"
+        }
+      }
+    },
+    "pricelistGetFullPriceItemsResponse": {
+      "type": "object",
+      "properties": {
+        "priceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistGetFullPriceItem"
+          }
+        }
+      }
+    },
+    "pricelistGetPriceItem": {
+      "type": "object",
+      "properties": {
+        "itemGrn": {
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/pricelistMoney",
+          "title": "The price at which the customer should buy the item"
+        },
+        "doubleFormatPrice": {
+          "type": "number",
+          "format": "double",
+          "title": "The price converted to double"
+        },
+        "endDatePrice": {
+          "type": "string",
+          "format": "date-time",
+          "title": "The end date of the price"
+        },
+        "basePrice": {
+          "$ref": "#/definitions/pricelistMoney",
+          "title": "The price at which the item was sold initially, the \"crossed price\""
+        },
+        "doubleFormatBasePrice": {
+          "type": "number",
+          "format": "double",
+          "title": "The base_price converted to double"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "hasTierPrices": {
+          "type": "boolean",
+          "title": "Whether the price has tiered prices in the tier-prices microservice"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "different scope of GetPriceListItem, may differ in the next future"
+    },
+    "pricelistGetPriceItemsByPriceListItemIdsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "priceListItemId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pricelistGetPriceItemsByPriceListItemIdsResponse": {
+      "type": "object",
+      "properties": {
+        "prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistGetPriceListItem"
+          }
+        }
+      }
+    },
+    "pricelistGetPriceListByCodeRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "code": {
+          "type": "string",
+          "title": "required"
+        }
+      }
+    },
+    "pricelistGetPriceListByCodeResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "deliveredDutyPaid": {
+          "type": "boolean"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "$ref": "#/definitions/pricelistPriceListType"
+        },
+        "isSystem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pricelistGetPriceListItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "itemGrn": {
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/pricelistMoney"
+        },
+        "doubleFormatPrice": {
+          "type": "number",
+          "format": "double",
+          "title": "The price converted to double"
+        },
+        "endDatePrice": {
+          "type": "string",
+          "format": "date-time",
+          "title": "The end date of the price"
+        },
+        "basePrice": {
+          "$ref": "#/definitions/pricelistMoney"
+        },
+        "doubleFormatBasePrice": {
+          "type": "number",
+          "format": "double",
+          "title": "The base_price converted to double"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "hasTierPrices": {
+          "type": "boolean",
+          "title": "Whether the price has tiered prices in the tier-prices microservice"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "pricelistGetPriceListItemsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "id": {
+          "type": "string",
+          "title": "required"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistGetPriceListItemsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistGetPriceListItem"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistGetPriceListRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "id": {
+          "type": "string",
+          "title": "required"
+        }
+      }
+    },
+    "pricelistGetPriceListResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "deliveredDutyPaid": {
+          "type": "boolean"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "$ref": "#/definitions/pricelistPriceListType"
+        },
+        "isSystem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pricelistGetPricesRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "itemsGrn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "context": {
+          "$ref": "#/definitions/pricelistPriceContext"
+        }
+      }
+    },
+    "pricelistGetPricesResponse": {
+      "type": "object",
+      "properties": {
+        "prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistGetPriceItem"
+          }
+        }
+      }
+    },
+    "pricelistListFullPriceItemsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "id": {
+          "type": "string",
+          "title": "required"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "title": "required"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistListFullPriceItemsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistGetFullPriceItem"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistListPriceListsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "searchQuery": {
+          "type": "string"
+        },
+        "filterMask": {
+          "type": "string"
+        },
+        "filter": {
+          "$ref": "#/definitions/ListPriceListsRequestFilter"
+        }
+      }
+    },
+    "pricelistListPriceListsResponse": {
+      "type": "object",
+      "properties": {
+        "pricelists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/ListPriceListsResponsePriceList"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistMarketFilter": {
+      "type": "object",
+      "properties": {
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/pricelistFilterCondition"
+        }
+      }
+    },
+    "pricelistMoney": {
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "format": "int64",
+          "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar."
+        },
+        "micros": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of micro (10^-6) units of the amount.\nThe value must be between -999,999 and +999,999 inclusive.\nIf `units` is positive, `micros` must be positive or zero.\nIf `units` is zero, `micros` can be positive, zero, or negative.\nIf `units` is negative, `micros` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `micros`=-750,000."
+        }
+      },
+      "description": "Represents an amount of money."
+    },
+    "pricelistPriceContext": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "segment": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "market": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "currency"
+      ]
+    },
+    "pricelistPriceListType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "BASE",
+        "CATALOG_PROMOTION"
+      ],
+      "default": "UNKNOWN"
+    },
+    "pricelistPriceListTypeFilter": {
+      "type": "object",
+      "properties": {
+        "pricelistTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pricelistPriceListType"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/pricelistFilterCondition"
+        }
+      }
+    },
+    "pricelistSegmentFilter": {
+      "type": "object",
+      "properties": {
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/pricelistFilterCondition"
+        }
+      }
+    },
+    "pricelistSetPriceListItem": {
+      "type": "object",
+      "properties": {
+        "itemGrn": {
+          "type": "string",
+          "title": "required and unique by price list"
+        },
+        "basePrice": {
+          "$ref": "#/definitions/pricelistMoney"
+        },
+        "priceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistSetPriceListItemPrice"
+          }
+        },
+        "hasTierPrices": {
+          "type": "boolean",
+          "title": "Whether the price has tiered prices in the tier-prices microservice"
+        }
+      }
+    },
+    "pricelistSetPriceListItemError": {
+      "type": "object",
+      "properties": {
+        "itemGrn": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistSetPriceListItemPrice": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/pricelistMoney",
+          "title": "The price at which the customer should buy the item"
+        },
+        "isEnabled": {
+          "type": "boolean",
+          "title": "Whether the price is enabled or not"
+        },
+        "startAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "The start date of the price"
+        },
+        "endAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "The end date of the price"
+        },
+        "order": {
+          "type": "integer",
+          "format": "int64",
+          "title": "The order of the price. The lower the value, the higher the priority"
+        },
+        "basePrice": {
+          "$ref": "#/definitions/pricelistMoney",
+          "title": "The price at which the item was sold initially, the \"crossed price\""
+        }
+      }
+    },
+    "pricelistSetPriceListItemsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pricelistSetPriceListItem"
+          }
+        }
+      }
+    },
+    "pricelistSetPriceListItemsResponse": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "$ref": "#/definitions/pricelistSetPriceListItemError"
+        }
+      }
+    },
+    "pricelistUpdatePriceListRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string",
+          "title": "required"
+        },
+        "id": {
+          "type": "string",
+          "title": "required"
+        },
+        "payload": {
+          "$ref": "#/definitions/pricelistUpdatePriceListRequestPayload"
+        },
+        "payloadMask": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistUpdatePriceListRequestPayload": {
+      "type": "object",
+      "properties": {
+        "isActive": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "currency": {
+          "$ref": "#/definitions/pricelistCurrency"
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "deliveredDutyPaid": {
+          "type": "boolean"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "markets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "$ref": "#/definitions/pricelistPriceListType"
+        },
+        "isSystem": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "pricelistUpdatePriceListResponse": {
+      "type": "object"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
