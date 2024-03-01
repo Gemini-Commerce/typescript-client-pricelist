@@ -49,31 +49,85 @@ import { RpcStatus } from '../models/RpcStatus';
 import { ObservablePriceListApi } from "./ObservableAPI";
 import { PriceListApiRequestFactory, PriceListApiResponseProcessor} from "../apis/PriceListApi";
 
-export interface PriceListApiPriceListCreatePriceListRequest {
+export interface PriceListApiCreatePriceListRequest {
     /**
      * 
      * @type PricelistCreatePriceListRequest
-     * @memberof PriceListApipriceListCreatePriceList
+     * @memberof PriceListApicreatePriceList
      */
     body: PricelistCreatePriceListRequest
 }
 
-export interface PriceListApiPriceListDeletePriceListItemsRequest {
+export interface PriceListApiDeletePriceListItemsRequest {
     /**
      * 
      * @type PricelistDeletePriceListItemsRequest
-     * @memberof PriceListApipriceListDeletePriceListItems
+     * @memberof PriceListApideletePriceListItems
      */
     body: PricelistDeletePriceListItemsRequest
 }
 
-export interface PriceListApiPriceListGetFullPriceItemsByPricelistIdRequest {
+export interface PriceListApiGetFullPriceItemsByPricelistIdRequest {
     /**
      * 
      * @type PricelistGetFullPriceItemsRequest
-     * @memberof PriceListApipriceListGetFullPriceItemsByPricelistId
+     * @memberof PriceListApigetFullPriceItemsByPricelistId
      */
     body: PricelistGetFullPriceItemsRequest
+}
+
+export interface PriceListApiGetPriceListRequest {
+    /**
+     * 
+     * @type PricelistGetPriceListRequest
+     * @memberof PriceListApigetPriceList
+     */
+    body: PricelistGetPriceListRequest
+}
+
+export interface PriceListApiGetPriceListByCodeRequest {
+    /**
+     * 
+     * @type PricelistGetPriceListByCodeRequest
+     * @memberof PriceListApigetPriceListByCode
+     */
+    body: PricelistGetPriceListByCodeRequest
+}
+
+export interface PriceListApiGetPriceListItemsRequest {
+    /**
+     * 
+     * @type PricelistGetPriceListItemsRequest
+     * @memberof PriceListApigetPriceListItems
+     */
+    body: PricelistGetPriceListItemsRequest
+}
+
+export interface PriceListApiGetPricesItemsRequest {
+    /**
+     * 
+     * @type PricelistGetPricesRequest
+     * @memberof PriceListApigetPricesItems
+     */
+    body: PricelistGetPricesRequest
+}
+
+export interface PriceListApiListFullPriceItemsByPricelistIdRequest {
+    /**
+     * 
+     * @type PricelistListFullPriceItemsRequest
+     * @memberof PriceListApilistFullPriceItemsByPricelistId
+     */
+    body: PricelistListFullPriceItemsRequest
+}
+
+export interface PriceListApiListPriceListsRequest {
+    /**
+     * 
+     * @type PricelistListPriceListsRequest
+     * @memberof PriceListApilistPriceLists
+     */
+    body: PricelistListPriceListsRequest
 }
 
 export interface PriceListApiPriceListGetPriceItemsByPriceListItemIdsRequest {
@@ -85,74 +139,20 @@ export interface PriceListApiPriceListGetPriceItemsByPriceListItemIdsRequest {
     body: PricelistGetPriceItemsByPriceListItemIdsRequest
 }
 
-export interface PriceListApiPriceListGetPriceListRequest {
-    /**
-     * 
-     * @type PricelistGetPriceListRequest
-     * @memberof PriceListApipriceListGetPriceList
-     */
-    body: PricelistGetPriceListRequest
-}
-
-export interface PriceListApiPriceListGetPriceListByCodeRequest {
-    /**
-     * 
-     * @type PricelistGetPriceListByCodeRequest
-     * @memberof PriceListApipriceListGetPriceListByCode
-     */
-    body: PricelistGetPriceListByCodeRequest
-}
-
-export interface PriceListApiPriceListGetPriceListItemsRequest {
-    /**
-     * 
-     * @type PricelistGetPriceListItemsRequest
-     * @memberof PriceListApipriceListGetPriceListItems
-     */
-    body: PricelistGetPriceListItemsRequest
-}
-
-export interface PriceListApiPriceListGetPricesItemsRequest {
-    /**
-     * 
-     * @type PricelistGetPricesRequest
-     * @memberof PriceListApipriceListGetPricesItems
-     */
-    body: PricelistGetPricesRequest
-}
-
-export interface PriceListApiPriceListListFullPriceItemsByPricelistIdRequest {
-    /**
-     * 
-     * @type PricelistListFullPriceItemsRequest
-     * @memberof PriceListApipriceListListFullPriceItemsByPricelistId
-     */
-    body: PricelistListFullPriceItemsRequest
-}
-
-export interface PriceListApiPriceListListPriceListsRequest {
-    /**
-     * 
-     * @type PricelistListPriceListsRequest
-     * @memberof PriceListApipriceListListPriceLists
-     */
-    body: PricelistListPriceListsRequest
-}
-
-export interface PriceListApiPriceListSetPriceListItemsRequest {
+export interface PriceListApiSetPriceListItemsRequest {
     /**
      * 
      * @type PricelistSetPriceListItemsRequest
-     * @memberof PriceListApipriceListSetPriceListItems
+     * @memberof PriceListApisetPriceListItems
      */
     body: PricelistSetPriceListItemsRequest
 }
 
-export interface PriceListApiPriceListUpdatePriceListRequest {
+export interface PriceListApiUpdatePriceListRequest {
     /**
      * 
      * @type PricelistUpdatePriceListRequest
-     * @memberof PriceListApipriceListUpdatePriceList
+     * @memberof PriceListApiupdatePriceList
      */
     body: PricelistUpdatePriceListRequest
 }
@@ -165,45 +165,165 @@ export class ObjectPriceListApi {
     }
 
     /**
+     * Allows the creation of a new price list with specified details such as code, name, currency, and type.
+     * Create new list
      * @param param the request object
      */
-    public priceListCreatePriceListWithHttpInfo(param: PriceListApiPriceListCreatePriceListRequest, options?: Configuration): Promise<HttpInfo<PricelistCreatePriceListResponse>> {
-        return this.api.priceListCreatePriceListWithHttpInfo(param.body,  options).toPromise();
+    public createPriceListWithHttpInfo(param: PriceListApiCreatePriceListRequest, options?: Configuration): Promise<HttpInfo<PricelistCreatePriceListResponse>> {
+        return this.api.createPriceListWithHttpInfo(param.body,  options).toPromise();
     }
 
     /**
+     * Allows the creation of a new price list with specified details such as code, name, currency, and type.
+     * Create new list
      * @param param the request object
      */
-    public priceListCreatePriceList(param: PriceListApiPriceListCreatePriceListRequest, options?: Configuration): Promise<PricelistCreatePriceListResponse> {
-        return this.api.priceListCreatePriceList(param.body,  options).toPromise();
+    public createPriceList(param: PriceListApiCreatePriceListRequest, options?: Configuration): Promise<PricelistCreatePriceListResponse> {
+        return this.api.createPriceList(param.body,  options).toPromise();
     }
 
     /**
+     * Deletes specified items from a price list based on their unique identifiers.
+     * Get prices for items
      * @param param the request object
      */
-    public priceListDeletePriceListItemsWithHttpInfo(param: PriceListApiPriceListDeletePriceListItemsRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.priceListDeletePriceListItemsWithHttpInfo(param.body,  options).toPromise();
+    public deletePriceListItemsWithHttpInfo(param: PriceListApiDeletePriceListItemsRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.deletePriceListItemsWithHttpInfo(param.body,  options).toPromise();
     }
 
     /**
+     * Deletes specified items from a price list based on their unique identifiers.
+     * Get prices for items
      * @param param the request object
      */
-    public priceListDeletePriceListItems(param: PriceListApiPriceListDeletePriceListItemsRequest, options?: Configuration): Promise<any> {
-        return this.api.priceListDeletePriceListItems(param.body,  options).toPromise();
+    public deletePriceListItems(param: PriceListApiDeletePriceListItemsRequest, options?: Configuration): Promise<any> {
+        return this.api.deletePriceListItems(param.body,  options).toPromise();
     }
 
     /**
+     * Fetches detailed information about items, including historical price data, for a specific price list.
+     * List detailed items
      * @param param the request object
      */
-    public priceListGetFullPriceItemsByPricelistIdWithHttpInfo(param: PriceListApiPriceListGetFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<HttpInfo<PricelistGetFullPriceItemsResponse>> {
-        return this.api.priceListGetFullPriceItemsByPricelistIdWithHttpInfo(param.body,  options).toPromise();
+    public getFullPriceItemsByPricelistIdWithHttpInfo(param: PriceListApiGetFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<HttpInfo<PricelistGetFullPriceItemsResponse>> {
+        return this.api.getFullPriceItemsByPricelistIdWithHttpInfo(param.body,  options).toPromise();
     }
 
     /**
+     * Fetches detailed information about items, including historical price data, for a specific price list.
+     * List detailed items
      * @param param the request object
      */
-    public priceListGetFullPriceItemsByPricelistId(param: PriceListApiPriceListGetFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<PricelistGetFullPriceItemsResponse> {
-        return this.api.priceListGetFullPriceItemsByPricelistId(param.body,  options).toPromise();
+    public getFullPriceItemsByPricelistId(param: PriceListApiGetFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<PricelistGetFullPriceItemsResponse> {
+        return this.api.getFullPriceItemsByPricelistId(param.body,  options).toPromise();
+    }
+
+    /**
+     * Returns information about a particular price list identified by tenant ID and price list ID. The response includes details such as code, name, currency, and type.
+     * Get specific list
+     * @param param the request object
+     */
+    public getPriceListWithHttpInfo(param: PriceListApiGetPriceListRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPriceListResponse>> {
+        return this.api.getPriceListWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * Returns information about a particular price list identified by tenant ID and price list ID. The response includes details such as code, name, currency, and type.
+     * Get specific list
+     * @param param the request object
+     */
+    public getPriceList(param: PriceListApiGetPriceListRequest, options?: Configuration): Promise<PricelistGetPriceListResponse> {
+        return this.api.getPriceList(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves information about a specific price list using the unique code associated with it. The response includes details such as code, name, currency, and type.
+     * Get list by code
+     * @param param the request object
+     */
+    public getPriceListByCodeWithHttpInfo(param: PriceListApiGetPriceListByCodeRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPriceListByCodeResponse>> {
+        return this.api.getPriceListByCodeWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves information about a specific price list using the unique code associated with it. The response includes details such as code, name, currency, and type.
+     * Get list by code
+     * @param param the request object
+     */
+    public getPriceListByCode(param: PriceListApiGetPriceListByCodeRequest, options?: Configuration): Promise<PricelistGetPriceListByCodeResponse> {
+        return this.api.getPriceListByCode(param.body,  options).toPromise();
+    }
+
+    /**
+     * Fetches a paginated list of items associated with a particular price list.
+     * Get items in list
+     * @param param the request object
+     */
+    public getPriceListItemsWithHttpInfo(param: PriceListApiGetPriceListItemsRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPriceListItemsResponse>> {
+        return this.api.getPriceListItemsWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * Fetches a paginated list of items associated with a particular price list.
+     * Get items in list
+     * @param param the request object
+     */
+    public getPriceListItems(param: PriceListApiGetPriceListItemsRequest, options?: Configuration): Promise<PricelistGetPriceListItemsResponse> {
+        return this.api.getPriceListItems(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves the current prices of specified items considering the provided context, such as currency and market.
+     * Get detailed items
+     * @param param the request object
+     */
+    public getPricesItemsWithHttpInfo(param: PriceListApiGetPricesItemsRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPricesResponse>> {
+        return this.api.getPricesItemsWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves the current prices of specified items considering the provided context, such as currency and market.
+     * Get detailed items
+     * @param param the request object
+     */
+    public getPricesItems(param: PriceListApiGetPricesItemsRequest, options?: Configuration): Promise<PricelistGetPricesResponse> {
+        return this.api.getPricesItems(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves a paginated list of detailed price items, including historical data, for a specific price list.
+     * List detailed price items for a specific price list
+     * @param param the request object
+     */
+    public listFullPriceItemsByPricelistIdWithHttpInfo(param: PriceListApiListFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<HttpInfo<PricelistListFullPriceItemsResponse>> {
+        return this.api.listFullPriceItemsByPricelistIdWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves a paginated list of detailed price items, including historical data, for a specific price list.
+     * List detailed price items for a specific price list
+     * @param param the request object
+     */
+    public listFullPriceItemsByPricelistId(param: PriceListApiListFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<PricelistListFullPriceItemsResponse> {
+        return this.api.listFullPriceItemsByPricelistId(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves a list of price lists based on optional filters such as name, code, and other attributes. The response includes details such as code, name, currency, and type.
+     * List all price lists
+     * @param param the request object
+     */
+    public listPriceListsWithHttpInfo(param: PriceListApiListPriceListsRequest, options?: Configuration): Promise<HttpInfo<PricelistListPriceListsResponse>> {
+        return this.api.listPriceListsWithHttpInfo(param.body,  options).toPromise();
+    }
+
+    /**
+     * Retrieves a list of price lists based on optional filters such as name, code, and other attributes. The response includes details such as code, name, currency, and type.
+     * List all price lists
+     * @param param the request object
+     */
+    public listPriceLists(param: PriceListApiListPriceListsRequest, options?: Configuration): Promise<PricelistListPriceListsResponse> {
+        return this.api.listPriceLists(param.body,  options).toPromise();
     }
 
     /**
@@ -221,115 +341,39 @@ export class ObjectPriceListApi {
     }
 
     /**
+     * Updates or creates items for a given price list, allowing bulk modifications.
+     * Set items in list
      * @param param the request object
      */
-    public priceListGetPriceListWithHttpInfo(param: PriceListApiPriceListGetPriceListRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPriceListResponse>> {
-        return this.api.priceListGetPriceListWithHttpInfo(param.body,  options).toPromise();
+    public setPriceListItemsWithHttpInfo(param: PriceListApiSetPriceListItemsRequest, options?: Configuration): Promise<HttpInfo<PricelistSetPriceListItemsResponse>> {
+        return this.api.setPriceListItemsWithHttpInfo(param.body,  options).toPromise();
     }
 
     /**
+     * Updates or creates items for a given price list, allowing bulk modifications.
+     * Set items in list
      * @param param the request object
      */
-    public priceListGetPriceList(param: PriceListApiPriceListGetPriceListRequest, options?: Configuration): Promise<PricelistGetPriceListResponse> {
-        return this.api.priceListGetPriceList(param.body,  options).toPromise();
+    public setPriceListItems(param: PriceListApiSetPriceListItemsRequest, options?: Configuration): Promise<PricelistSetPriceListItemsResponse> {
+        return this.api.setPriceListItems(param.body,  options).toPromise();
     }
 
     /**
+     * Modifies the attributes of an existing price list based on the provided payload and field mask. The field mask is used to specify which attributes of the price list are to be updated. The field mask is a comma-separated list of fully qualified names of fields. Example: `code,name,currency,type`
+     * Update list
      * @param param the request object
      */
-    public priceListGetPriceListByCodeWithHttpInfo(param: PriceListApiPriceListGetPriceListByCodeRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPriceListByCodeResponse>> {
-        return this.api.priceListGetPriceListByCodeWithHttpInfo(param.body,  options).toPromise();
+    public updatePriceListWithHttpInfo(param: PriceListApiUpdatePriceListRequest, options?: Configuration): Promise<HttpInfo<any>> {
+        return this.api.updatePriceListWithHttpInfo(param.body,  options).toPromise();
     }
 
     /**
+     * Modifies the attributes of an existing price list based on the provided payload and field mask. The field mask is used to specify which attributes of the price list are to be updated. The field mask is a comma-separated list of fully qualified names of fields. Example: `code,name,currency,type`
+     * Update list
      * @param param the request object
      */
-    public priceListGetPriceListByCode(param: PriceListApiPriceListGetPriceListByCodeRequest, options?: Configuration): Promise<PricelistGetPriceListByCodeResponse> {
-        return this.api.priceListGetPriceListByCode(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListGetPriceListItemsWithHttpInfo(param: PriceListApiPriceListGetPriceListItemsRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPriceListItemsResponse>> {
-        return this.api.priceListGetPriceListItemsWithHttpInfo(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListGetPriceListItems(param: PriceListApiPriceListGetPriceListItemsRequest, options?: Configuration): Promise<PricelistGetPriceListItemsResponse> {
-        return this.api.priceListGetPriceListItems(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListGetPricesItemsWithHttpInfo(param: PriceListApiPriceListGetPricesItemsRequest, options?: Configuration): Promise<HttpInfo<PricelistGetPricesResponse>> {
-        return this.api.priceListGetPricesItemsWithHttpInfo(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListGetPricesItems(param: PriceListApiPriceListGetPricesItemsRequest, options?: Configuration): Promise<PricelistGetPricesResponse> {
-        return this.api.priceListGetPricesItems(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListListFullPriceItemsByPricelistIdWithHttpInfo(param: PriceListApiPriceListListFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<HttpInfo<PricelistListFullPriceItemsResponse>> {
-        return this.api.priceListListFullPriceItemsByPricelistIdWithHttpInfo(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListListFullPriceItemsByPricelistId(param: PriceListApiPriceListListFullPriceItemsByPricelistIdRequest, options?: Configuration): Promise<PricelistListFullPriceItemsResponse> {
-        return this.api.priceListListFullPriceItemsByPricelistId(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListListPriceListsWithHttpInfo(param: PriceListApiPriceListListPriceListsRequest, options?: Configuration): Promise<HttpInfo<PricelistListPriceListsResponse>> {
-        return this.api.priceListListPriceListsWithHttpInfo(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListListPriceLists(param: PriceListApiPriceListListPriceListsRequest, options?: Configuration): Promise<PricelistListPriceListsResponse> {
-        return this.api.priceListListPriceLists(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListSetPriceListItemsWithHttpInfo(param: PriceListApiPriceListSetPriceListItemsRequest, options?: Configuration): Promise<HttpInfo<PricelistSetPriceListItemsResponse>> {
-        return this.api.priceListSetPriceListItemsWithHttpInfo(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListSetPriceListItems(param: PriceListApiPriceListSetPriceListItemsRequest, options?: Configuration): Promise<PricelistSetPriceListItemsResponse> {
-        return this.api.priceListSetPriceListItems(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListUpdatePriceListWithHttpInfo(param: PriceListApiPriceListUpdatePriceListRequest, options?: Configuration): Promise<HttpInfo<any>> {
-        return this.api.priceListUpdatePriceListWithHttpInfo(param.body,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public priceListUpdatePriceList(param: PriceListApiPriceListUpdatePriceListRequest, options?: Configuration): Promise<any> {
-        return this.api.priceListUpdatePriceList(param.body,  options).toPromise();
+    public updatePriceList(param: PriceListApiUpdatePriceListRequest, options?: Configuration): Promise<any> {
+        return this.api.updatePriceList(param.body,  options).toPromise();
     }
 
 }

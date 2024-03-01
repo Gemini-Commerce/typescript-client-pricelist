@@ -1,26 +1,27 @@
 # .PriceListApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://pricelist.api.gogemini.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**priceListCreatePriceList**](PriceListApi.md#priceListCreatePriceList) | **POST** /pricelist.PriceList/CreatePriceList | 
-[**priceListDeletePriceListItems**](PriceListApi.md#priceListDeletePriceListItems) | **POST** /pricelist.PriceList/DeletePriceListItems | 
-[**priceListGetFullPriceItemsByPricelistId**](PriceListApi.md#priceListGetFullPriceItemsByPricelistId) | **POST** /pricelist.PriceList/GetFullPriceItemsByPricelistId | 
+[**createPriceList**](PriceListApi.md#createPriceList) | **POST** /pricelist.PriceList/CreatePriceList | Create new list
+[**deletePriceListItems**](PriceListApi.md#deletePriceListItems) | **POST** /pricelist.PriceList/DeletePriceListItems | Get prices for items
+[**getFullPriceItemsByPricelistId**](PriceListApi.md#getFullPriceItemsByPricelistId) | **POST** /pricelist.PriceList/GetFullPriceItemsByPricelistId | List detailed items
+[**getPriceList**](PriceListApi.md#getPriceList) | **POST** /pricelist.PriceList/GetPriceList | Get specific list
+[**getPriceListByCode**](PriceListApi.md#getPriceListByCode) | **POST** /pricelist.PriceList/GetPriceListByCode | Get list by code
+[**getPriceListItems**](PriceListApi.md#getPriceListItems) | **POST** /pricelist.PriceList/GetPriceListItems | Get items in list
+[**getPricesItems**](PriceListApi.md#getPricesItems) | **POST** /pricelist.PriceList/GetPricesItems | Get detailed items
+[**listFullPriceItemsByPricelistId**](PriceListApi.md#listFullPriceItemsByPricelistId) | **POST** /pricelist.PriceList/ListFullPriceItemsByPricelistId | List detailed price items for a specific price list
+[**listPriceLists**](PriceListApi.md#listPriceLists) | **POST** /pricelist.PriceList/ListPriceLists | List all price lists
 [**priceListGetPriceItemsByPriceListItemIds**](PriceListApi.md#priceListGetPriceItemsByPriceListItemIds) | **POST** /pricelist.PriceList/GetPriceItemsByPriceListItemIds | 
-[**priceListGetPriceList**](PriceListApi.md#priceListGetPriceList) | **POST** /pricelist.PriceList/GetPriceList | 
-[**priceListGetPriceListByCode**](PriceListApi.md#priceListGetPriceListByCode) | **POST** /pricelist.PriceList/GetPriceListByCode | 
-[**priceListGetPriceListItems**](PriceListApi.md#priceListGetPriceListItems) | **POST** /pricelist.PriceList/GetPriceListItems | 
-[**priceListGetPricesItems**](PriceListApi.md#priceListGetPricesItems) | **POST** /pricelist.PriceList/GetPricesItems | 
-[**priceListListFullPriceItemsByPricelistId**](PriceListApi.md#priceListListFullPriceItemsByPricelistId) | **POST** /pricelist.PriceList/ListFullPriceItemsByPricelistId | 
-[**priceListListPriceLists**](PriceListApi.md#priceListListPriceLists) | **POST** /pricelist.PriceList/ListPriceLists | 
-[**priceListSetPriceListItems**](PriceListApi.md#priceListSetPriceListItems) | **POST** /pricelist.PriceList/SetPriceListItems | 
-[**priceListUpdatePriceList**](PriceListApi.md#priceListUpdatePriceList) | **POST** /pricelist.PriceList/UpdatePriceList | 
+[**setPriceListItems**](PriceListApi.md#setPriceListItems) | **POST** /pricelist.PriceList/SetPriceListItems | Set items in list
+[**updatePriceList**](PriceListApi.md#updatePriceList) | **POST** /pricelist.PriceList/UpdatePriceList | Update list
 
 
-# **priceListCreatePriceList**
-> PricelistCreatePriceListResponse priceListCreatePriceList(body)
+# **createPriceList**
+> PricelistCreatePriceListResponse createPriceList(body)
 
+Allows the creation of a new price list with specified details such as code, name, currency, and type.
 
 ### Example
 
@@ -32,7 +33,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListCreatePriceListRequest = {
+let body:.PriceListApiCreatePriceListRequest = {
   // PricelistCreatePriceListRequest
   body: {
     tenantId: "tenantId_example",
@@ -58,7 +59,7 @@ let body:.PriceListApiPriceListCreatePriceListRequest = {
   },
 };
 
-apiInstance.priceListCreatePriceList(body).then((data:any) => {
+apiInstance.createPriceList(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -77,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -88,14 +89,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListDeletePriceListItems**
-> any priceListDeletePriceListItems(body)
+# **deletePriceListItems**
+> any deletePriceListItems(body)
 
+Deletes specified items from a price list based on their unique identifiers.
 
 ### Example
 
@@ -107,7 +111,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListDeletePriceListItemsRequest = {
+let body:.PriceListApiDeletePriceListItemsRequest = {
   // PricelistDeletePriceListItemsRequest
   body: {
     tenantId: "tenantId_example",
@@ -118,7 +122,7 @@ let body:.PriceListApiPriceListDeletePriceListItemsRequest = {
   },
 };
 
-apiInstance.priceListDeletePriceListItems(body).then((data:any) => {
+apiInstance.deletePriceListItems(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -137,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -148,14 +152,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListGetFullPriceItemsByPricelistId**
-> PricelistGetFullPriceItemsResponse priceListGetFullPriceItemsByPricelistId(body)
+# **getFullPriceItemsByPricelistId**
+> PricelistGetFullPriceItemsResponse getFullPriceItemsByPricelistId(body)
 
+Fetches detailed information about items, including historical price data, for a specific price list.
 
 ### Example
 
@@ -167,7 +174,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListGetFullPriceItemsByPricelistIdRequest = {
+let body:.PriceListApiGetFullPriceItemsByPricelistIdRequest = {
   // PricelistGetFullPriceItemsRequest
   body: {
     tenantId: "tenantId_example",
@@ -178,7 +185,7 @@ let body:.PriceListApiPriceListGetFullPriceItemsByPricelistIdRequest = {
   },
 };
 
-apiInstance.priceListGetFullPriceItemsByPricelistId(body).then((data:any) => {
+apiInstance.getFullPriceItemsByPricelistId(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -197,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -208,14 +215,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListGetPriceItemsByPriceListItemIds**
-> PricelistGetPriceItemsByPriceListItemIdsResponse priceListGetPriceItemsByPriceListItemIds(body)
+# **getPriceList**
+> PricelistGetPriceListResponse getPriceList(body)
 
+Returns information about a particular price list identified by tenant ID and price list ID. The response includes details such as code, name, currency, and type.
 
 ### Example
 
@@ -227,66 +237,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListGetPriceItemsByPriceListItemIdsRequest = {
-  // PricelistGetPriceItemsByPriceListItemIdsRequest
-  body: {
-    tenantId: "tenantId_example",
-    priceListItemId: [
-      "priceListItemId_example",
-    ],
-  },
-};
-
-apiInstance.priceListGetPriceItemsByPriceListItemIds(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **PricelistGetPriceItemsByPriceListItemIdsRequest**|  |
-
-
-### Return type
-
-**PricelistGetPriceItemsByPriceListItemIdsResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**0** | An unexpected error response. |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **priceListGetPriceList**
-> PricelistGetPriceListResponse priceListGetPriceList(body)
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .PriceListApi(configuration);
-
-let body:.PriceListApiPriceListGetPriceListRequest = {
+let body:.PriceListApiGetPriceListRequest = {
   // PricelistGetPriceListRequest
   body: {
     tenantId: "tenantId_example",
@@ -294,7 +245,7 @@ let body:.PriceListApiPriceListGetPriceListRequest = {
   },
 };
 
-apiInstance.priceListGetPriceList(body).then((data:any) => {
+apiInstance.getPriceList(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -313,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -324,14 +275,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListGetPriceListByCode**
-> PricelistGetPriceListByCodeResponse priceListGetPriceListByCode(body)
+# **getPriceListByCode**
+> PricelistGetPriceListByCodeResponse getPriceListByCode(body)
 
+Retrieves information about a specific price list using the unique code associated with it. The response includes details such as code, name, currency, and type.
 
 ### Example
 
@@ -343,7 +297,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListGetPriceListByCodeRequest = {
+let body:.PriceListApiGetPriceListByCodeRequest = {
   // PricelistGetPriceListByCodeRequest
   body: {
     tenantId: "tenantId_example",
@@ -351,7 +305,7 @@ let body:.PriceListApiPriceListGetPriceListByCodeRequest = {
   },
 };
 
-apiInstance.priceListGetPriceListByCode(body).then((data:any) => {
+apiInstance.getPriceListByCode(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -370,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -381,14 +335,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListGetPriceListItems**
-> PricelistGetPriceListItemsResponse priceListGetPriceListItems(body)
+# **getPriceListItems**
+> PricelistGetPriceListItemsResponse getPriceListItems(body)
 
+Fetches a paginated list of items associated with a particular price list.
 
 ### Example
 
@@ -400,7 +357,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListGetPriceListItemsRequest = {
+let body:.PriceListApiGetPriceListItemsRequest = {
   // PricelistGetPriceListItemsRequest
   body: {
     tenantId: "tenantId_example",
@@ -410,7 +367,7 @@ let body:.PriceListApiPriceListGetPriceListItemsRequest = {
   },
 };
 
-apiInstance.priceListGetPriceListItems(body).then((data:any) => {
+apiInstance.getPriceListItems(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -429,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -440,14 +397,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListGetPricesItems**
-> PricelistGetPricesResponse priceListGetPricesItems(body)
+# **getPricesItems**
+> PricelistGetPricesResponse getPricesItems(body)
 
+Retrieves the current prices of specified items considering the provided context, such as currency and market.
 
 ### Example
 
@@ -459,7 +419,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListGetPricesItemsRequest = {
+let body:.PriceListApiGetPricesItemsRequest = {
   // PricelistGetPricesRequest
   body: {
     tenantId: "tenantId_example",
@@ -478,7 +438,7 @@ let body:.PriceListApiPriceListGetPricesItemsRequest = {
   },
 };
 
-apiInstance.priceListGetPricesItems(body).then((data:any) => {
+apiInstance.getPricesItems(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -497,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -508,14 +468,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListListFullPriceItemsByPricelistId**
-> PricelistListFullPriceItemsResponse priceListListFullPriceItemsByPricelistId(body)
+# **listFullPriceItemsByPricelistId**
+> PricelistListFullPriceItemsResponse listFullPriceItemsByPricelistId(body)
 
+Retrieves a paginated list of detailed price items, including historical data, for a specific price list.
 
 ### Example
 
@@ -527,7 +490,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListListFullPriceItemsByPricelistIdRequest = {
+let body:.PriceListApiListFullPriceItemsByPricelistIdRequest = {
   // PricelistListFullPriceItemsRequest
   body: {
     tenantId: "tenantId_example",
@@ -537,7 +500,7 @@ let body:.PriceListApiPriceListListFullPriceItemsByPricelistIdRequest = {
   },
 };
 
-apiInstance.priceListListFullPriceItemsByPricelistId(body).then((data:any) => {
+apiInstance.listFullPriceItemsByPricelistId(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -556,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -567,14 +530,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListListPriceLists**
-> PricelistListPriceListsResponse priceListListPriceLists(body)
+# **listPriceLists**
+> PricelistListPriceListsResponse listPriceLists(body)
 
+Retrieves a list of price lists based on optional filters such as name, code, and other attributes. The response includes details such as code, name, currency, and type.
 
 ### Example
 
@@ -586,7 +552,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListListPriceListsRequest = {
+let body:.PriceListApiListPriceListsRequest = {
   // PricelistListPriceListsRequest
   body: {
     tenantId: "tenantId_example",
@@ -637,7 +603,7 @@ let body:.PriceListApiPriceListListPriceListsRequest = {
   },
 };
 
-apiInstance.priceListListPriceLists(body).then((data:any) => {
+apiInstance.listPriceLists(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -656,7 +622,68 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **priceListGetPriceItemsByPriceListItemIds**
+> PricelistGetPriceItemsByPriceListItemIdsResponse priceListGetPriceItemsByPriceListItemIds(body)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .PriceListApi(configuration);
+
+let body:.PriceListApiPriceListGetPriceItemsByPriceListItemIdsRequest = {
+  // PricelistGetPriceItemsByPriceListItemIdsRequest
+  body: {
+    tenantId: "tenantId_example",
+    priceListItemId: [
+      "priceListItemId_example",
+    ],
+  },
+};
+
+apiInstance.priceListGetPriceItemsByPriceListItemIds(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **PricelistGetPriceItemsByPriceListItemIdsRequest**|  |
+
+
+### Return type
+
+**PricelistGetPriceItemsByPriceListItemIdsResponse**
+
+### Authorization
+
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -672,9 +699,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListSetPriceListItems**
-> PricelistSetPriceListItemsResponse priceListSetPriceListItems(body)
+# **setPriceListItems**
+> PricelistSetPriceListItemsResponse setPriceListItems(body)
 
+Updates or creates items for a given price list, allowing bulk modifications.
 
 ### Example
 
@@ -686,7 +714,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListSetPriceListItemsRequest = {
+let body:.PriceListApiSetPriceListItemsRequest = {
   // PricelistSetPriceListItemsRequest
   body: {
     tenantId: "tenantId_example",
@@ -720,7 +748,7 @@ let body:.PriceListApiPriceListSetPriceListItemsRequest = {
   },
 };
 
-apiInstance.priceListSetPriceListItems(body).then((data:any) => {
+apiInstance.setPriceListItems(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -739,7 +767,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -750,14 +778,17 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **priceListUpdatePriceList**
-> any priceListUpdatePriceList(body)
+# **updatePriceList**
+> any updatePriceList(body)
 
+Modifies the attributes of an existing price list based on the provided payload and field mask. The field mask is used to specify which attributes of the price list are to be updated. The field mask is a comma-separated list of fully qualified names of fields. Example: `code,name,currency,type`
 
 ### Example
 
@@ -769,7 +800,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PriceListApi(configuration);
 
-let body:.PriceListApiPriceListUpdatePriceListRequest = {
+let body:.PriceListApiUpdatePriceListRequest = {
   // PricelistUpdatePriceListRequest
   body: {
     tenantId: "tenantId_example",
@@ -798,7 +829,7 @@ let body:.PriceListApiPriceListUpdatePriceListRequest = {
   },
 };
 
-apiInstance.priceListUpdatePriceList(body).then((data:any) => {
+apiInstance.updatePriceList(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -817,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](README.md#Authorization)
 
 ### HTTP request headers
 
@@ -828,7 +859,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**500** | An internal error occurred is thrown when an incompatible payload is sent |  -  |
 **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

@@ -64,10 +64,12 @@ export class ObservablePriceListApi {
     }
 
     /**
+     * Allows the creation of a new price list with specified details such as code, name, currency, and type.
+     * Create new list
      * @param body 
      */
-    public priceListCreatePriceListWithHttpInfo(body: PricelistCreatePriceListRequest, _options?: Configuration): Observable<HttpInfo<PricelistCreatePriceListResponse>> {
-        const requestContextPromise = this.requestFactory.priceListCreatePriceList(body, _options);
+    public createPriceListWithHttpInfo(body: PricelistCreatePriceListRequest, _options?: Configuration): Observable<HttpInfo<PricelistCreatePriceListResponse>> {
+        const requestContextPromise = this.requestFactory.createPriceList(body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -81,22 +83,26 @@ export class ObservablePriceListApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListCreatePriceListWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.createPriceListWithHttpInfo(rsp)));
             }));
     }
 
     /**
+     * Allows the creation of a new price list with specified details such as code, name, currency, and type.
+     * Create new list
      * @param body 
      */
-    public priceListCreatePriceList(body: PricelistCreatePriceListRequest, _options?: Configuration): Observable<PricelistCreatePriceListResponse> {
-        return this.priceListCreatePriceListWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistCreatePriceListResponse>) => apiResponse.data));
+    public createPriceList(body: PricelistCreatePriceListRequest, _options?: Configuration): Observable<PricelistCreatePriceListResponse> {
+        return this.createPriceListWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistCreatePriceListResponse>) => apiResponse.data));
     }
 
     /**
+     * Deletes specified items from a price list based on their unique identifiers.
+     * Get prices for items
      * @param body 
      */
-    public priceListDeletePriceListItemsWithHttpInfo(body: PricelistDeletePriceListItemsRequest, _options?: Configuration): Observable<HttpInfo<any>> {
-        const requestContextPromise = this.requestFactory.priceListDeletePriceListItems(body, _options);
+    public deletePriceListItemsWithHttpInfo(body: PricelistDeletePriceListItemsRequest, _options?: Configuration): Observable<HttpInfo<any>> {
+        const requestContextPromise = this.requestFactory.deletePriceListItems(body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -110,22 +116,26 @@ export class ObservablePriceListApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListDeletePriceListItemsWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deletePriceListItemsWithHttpInfo(rsp)));
             }));
     }
 
     /**
+     * Deletes specified items from a price list based on their unique identifiers.
+     * Get prices for items
      * @param body 
      */
-    public priceListDeletePriceListItems(body: PricelistDeletePriceListItemsRequest, _options?: Configuration): Observable<any> {
-        return this.priceListDeletePriceListItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
+    public deletePriceListItems(body: PricelistDeletePriceListItemsRequest, _options?: Configuration): Observable<any> {
+        return this.deletePriceListItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
     }
 
     /**
+     * Fetches detailed information about items, including historical price data, for a specific price list.
+     * List detailed items
      * @param body 
      */
-    public priceListGetFullPriceItemsByPricelistIdWithHttpInfo(body: PricelistGetFullPriceItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetFullPriceItemsResponse>> {
-        const requestContextPromise = this.requestFactory.priceListGetFullPriceItemsByPricelistId(body, _options);
+    public getFullPriceItemsByPricelistIdWithHttpInfo(body: PricelistGetFullPriceItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetFullPriceItemsResponse>> {
+        const requestContextPromise = this.requestFactory.getFullPriceItemsByPricelistId(body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -139,15 +149,215 @@ export class ObservablePriceListApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListGetFullPriceItemsByPricelistIdWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getFullPriceItemsByPricelistIdWithHttpInfo(rsp)));
             }));
     }
 
     /**
+     * Fetches detailed information about items, including historical price data, for a specific price list.
+     * List detailed items
      * @param body 
      */
-    public priceListGetFullPriceItemsByPricelistId(body: PricelistGetFullPriceItemsRequest, _options?: Configuration): Observable<PricelistGetFullPriceItemsResponse> {
-        return this.priceListGetFullPriceItemsByPricelistIdWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetFullPriceItemsResponse>) => apiResponse.data));
+    public getFullPriceItemsByPricelistId(body: PricelistGetFullPriceItemsRequest, _options?: Configuration): Observable<PricelistGetFullPriceItemsResponse> {
+        return this.getFullPriceItemsByPricelistIdWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetFullPriceItemsResponse>) => apiResponse.data));
+    }
+
+    /**
+     * Returns information about a particular price list identified by tenant ID and price list ID. The response includes details such as code, name, currency, and type.
+     * Get specific list
+     * @param body 
+     */
+    public getPriceListWithHttpInfo(body: PricelistGetPriceListRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPriceListResponse>> {
+        const requestContextPromise = this.requestFactory.getPriceList(body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPriceListWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Returns information about a particular price list identified by tenant ID and price list ID. The response includes details such as code, name, currency, and type.
+     * Get specific list
+     * @param body 
+     */
+    public getPriceList(body: PricelistGetPriceListRequest, _options?: Configuration): Observable<PricelistGetPriceListResponse> {
+        return this.getPriceListWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPriceListResponse>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieves information about a specific price list using the unique code associated with it. The response includes details such as code, name, currency, and type.
+     * Get list by code
+     * @param body 
+     */
+    public getPriceListByCodeWithHttpInfo(body: PricelistGetPriceListByCodeRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPriceListByCodeResponse>> {
+        const requestContextPromise = this.requestFactory.getPriceListByCode(body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPriceListByCodeWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieves information about a specific price list using the unique code associated with it. The response includes details such as code, name, currency, and type.
+     * Get list by code
+     * @param body 
+     */
+    public getPriceListByCode(body: PricelistGetPriceListByCodeRequest, _options?: Configuration): Observable<PricelistGetPriceListByCodeResponse> {
+        return this.getPriceListByCodeWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPriceListByCodeResponse>) => apiResponse.data));
+    }
+
+    /**
+     * Fetches a paginated list of items associated with a particular price list.
+     * Get items in list
+     * @param body 
+     */
+    public getPriceListItemsWithHttpInfo(body: PricelistGetPriceListItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPriceListItemsResponse>> {
+        const requestContextPromise = this.requestFactory.getPriceListItems(body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPriceListItemsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Fetches a paginated list of items associated with a particular price list.
+     * Get items in list
+     * @param body 
+     */
+    public getPriceListItems(body: PricelistGetPriceListItemsRequest, _options?: Configuration): Observable<PricelistGetPriceListItemsResponse> {
+        return this.getPriceListItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPriceListItemsResponse>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieves the current prices of specified items considering the provided context, such as currency and market.
+     * Get detailed items
+     * @param body 
+     */
+    public getPricesItemsWithHttpInfo(body: PricelistGetPricesRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPricesResponse>> {
+        const requestContextPromise = this.requestFactory.getPricesItems(body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPricesItemsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieves the current prices of specified items considering the provided context, such as currency and market.
+     * Get detailed items
+     * @param body 
+     */
+    public getPricesItems(body: PricelistGetPricesRequest, _options?: Configuration): Observable<PricelistGetPricesResponse> {
+        return this.getPricesItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPricesResponse>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieves a paginated list of detailed price items, including historical data, for a specific price list.
+     * List detailed price items for a specific price list
+     * @param body 
+     */
+    public listFullPriceItemsByPricelistIdWithHttpInfo(body: PricelistListFullPriceItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistListFullPriceItemsResponse>> {
+        const requestContextPromise = this.requestFactory.listFullPriceItemsByPricelistId(body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listFullPriceItemsByPricelistIdWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieves a paginated list of detailed price items, including historical data, for a specific price list.
+     * List detailed price items for a specific price list
+     * @param body 
+     */
+    public listFullPriceItemsByPricelistId(body: PricelistListFullPriceItemsRequest, _options?: Configuration): Observable<PricelistListFullPriceItemsResponse> {
+        return this.listFullPriceItemsByPricelistIdWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistListFullPriceItemsResponse>) => apiResponse.data));
+    }
+
+    /**
+     * Retrieves a list of price lists based on optional filters such as name, code, and other attributes. The response includes details such as code, name, currency, and type.
+     * List all price lists
+     * @param body 
+     */
+    public listPriceListsWithHttpInfo(body: PricelistListPriceListsRequest, _options?: Configuration): Observable<HttpInfo<PricelistListPriceListsResponse>> {
+        const requestContextPromise = this.requestFactory.listPriceLists(body, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listPriceListsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Retrieves a list of price lists based on optional filters such as name, code, and other attributes. The response includes details such as code, name, currency, and type.
+     * List all price lists
+     * @param body 
+     */
+    public listPriceLists(body: PricelistListPriceListsRequest, _options?: Configuration): Observable<PricelistListPriceListsResponse> {
+        return this.listPriceListsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistListPriceListsResponse>) => apiResponse.data));
     }
 
     /**
@@ -180,10 +390,12 @@ export class ObservablePriceListApi {
     }
 
     /**
+     * Updates or creates items for a given price list, allowing bulk modifications.
+     * Set items in list
      * @param body 
      */
-    public priceListGetPriceListWithHttpInfo(body: PricelistGetPriceListRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPriceListResponse>> {
-        const requestContextPromise = this.requestFactory.priceListGetPriceList(body, _options);
+    public setPriceListItemsWithHttpInfo(body: PricelistSetPriceListItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistSetPriceListItemsResponse>> {
+        const requestContextPromise = this.requestFactory.setPriceListItems(body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -197,22 +409,26 @@ export class ObservablePriceListApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListGetPriceListWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.setPriceListItemsWithHttpInfo(rsp)));
             }));
     }
 
     /**
+     * Updates or creates items for a given price list, allowing bulk modifications.
+     * Set items in list
      * @param body 
      */
-    public priceListGetPriceList(body: PricelistGetPriceListRequest, _options?: Configuration): Observable<PricelistGetPriceListResponse> {
-        return this.priceListGetPriceListWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPriceListResponse>) => apiResponse.data));
+    public setPriceListItems(body: PricelistSetPriceListItemsRequest, _options?: Configuration): Observable<PricelistSetPriceListItemsResponse> {
+        return this.setPriceListItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistSetPriceListItemsResponse>) => apiResponse.data));
     }
 
     /**
+     * Modifies the attributes of an existing price list based on the provided payload and field mask. The field mask is used to specify which attributes of the price list are to be updated. The field mask is a comma-separated list of fully qualified names of fields. Example: `code,name,currency,type`
+     * Update list
      * @param body 
      */
-    public priceListGetPriceListByCodeWithHttpInfo(body: PricelistGetPriceListByCodeRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPriceListByCodeResponse>> {
-        const requestContextPromise = this.requestFactory.priceListGetPriceListByCode(body, _options);
+    public updatePriceListWithHttpInfo(body: PricelistUpdatePriceListRequest, _options?: Configuration): Observable<HttpInfo<any>> {
+        const requestContextPromise = this.requestFactory.updatePriceList(body, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -226,189 +442,17 @@ export class ObservablePriceListApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListGetPriceListByCodeWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.updatePriceListWithHttpInfo(rsp)));
             }));
     }
 
     /**
+     * Modifies the attributes of an existing price list based on the provided payload and field mask. The field mask is used to specify which attributes of the price list are to be updated. The field mask is a comma-separated list of fully qualified names of fields. Example: `code,name,currency,type`
+     * Update list
      * @param body 
      */
-    public priceListGetPriceListByCode(body: PricelistGetPriceListByCodeRequest, _options?: Configuration): Observable<PricelistGetPriceListByCodeResponse> {
-        return this.priceListGetPriceListByCodeWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPriceListByCodeResponse>) => apiResponse.data));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListGetPriceListItemsWithHttpInfo(body: PricelistGetPriceListItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPriceListItemsResponse>> {
-        const requestContextPromise = this.requestFactory.priceListGetPriceListItems(body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListGetPriceListItemsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListGetPriceListItems(body: PricelistGetPriceListItemsRequest, _options?: Configuration): Observable<PricelistGetPriceListItemsResponse> {
-        return this.priceListGetPriceListItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPriceListItemsResponse>) => apiResponse.data));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListGetPricesItemsWithHttpInfo(body: PricelistGetPricesRequest, _options?: Configuration): Observable<HttpInfo<PricelistGetPricesResponse>> {
-        const requestContextPromise = this.requestFactory.priceListGetPricesItems(body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListGetPricesItemsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListGetPricesItems(body: PricelistGetPricesRequest, _options?: Configuration): Observable<PricelistGetPricesResponse> {
-        return this.priceListGetPricesItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistGetPricesResponse>) => apiResponse.data));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListListFullPriceItemsByPricelistIdWithHttpInfo(body: PricelistListFullPriceItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistListFullPriceItemsResponse>> {
-        const requestContextPromise = this.requestFactory.priceListListFullPriceItemsByPricelistId(body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListListFullPriceItemsByPricelistIdWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListListFullPriceItemsByPricelistId(body: PricelistListFullPriceItemsRequest, _options?: Configuration): Observable<PricelistListFullPriceItemsResponse> {
-        return this.priceListListFullPriceItemsByPricelistIdWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistListFullPriceItemsResponse>) => apiResponse.data));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListListPriceListsWithHttpInfo(body: PricelistListPriceListsRequest, _options?: Configuration): Observable<HttpInfo<PricelistListPriceListsResponse>> {
-        const requestContextPromise = this.requestFactory.priceListListPriceLists(body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListListPriceListsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListListPriceLists(body: PricelistListPriceListsRequest, _options?: Configuration): Observable<PricelistListPriceListsResponse> {
-        return this.priceListListPriceListsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistListPriceListsResponse>) => apiResponse.data));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListSetPriceListItemsWithHttpInfo(body: PricelistSetPriceListItemsRequest, _options?: Configuration): Observable<HttpInfo<PricelistSetPriceListItemsResponse>> {
-        const requestContextPromise = this.requestFactory.priceListSetPriceListItems(body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListSetPriceListItemsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListSetPriceListItems(body: PricelistSetPriceListItemsRequest, _options?: Configuration): Observable<PricelistSetPriceListItemsResponse> {
-        return this.priceListSetPriceListItemsWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<PricelistSetPriceListItemsResponse>) => apiResponse.data));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListUpdatePriceListWithHttpInfo(body: PricelistUpdatePriceListRequest, _options?: Configuration): Observable<HttpInfo<any>> {
-        const requestContextPromise = this.requestFactory.priceListUpdatePriceList(body, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.priceListUpdatePriceListWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param body 
-     */
-    public priceListUpdatePriceList(body: PricelistUpdatePriceListRequest, _options?: Configuration): Observable<any> {
-        return this.priceListUpdatePriceListWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
+    public updatePriceList(body: PricelistUpdatePriceListRequest, _options?: Configuration): Observable<any> {
+        return this.updatePriceListWithHttpInfo(body, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
     }
 
 }
