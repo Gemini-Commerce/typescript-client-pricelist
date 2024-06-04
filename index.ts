@@ -12,22 +12,7 @@
  * Do not edit the class manually.
  */
 
-/**
- * 
- * @export
- * @interface PricelistGetPriceListByCodeRequest
- */
-export interface PricelistGetPriceListByCodeRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof PricelistGetPriceListByCodeRequest
-     */
-    'tenantId'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PricelistGetPriceListByCodeRequest
-     */
-    'code'?: string;
-}
+
+export * from "./api";
+export * from "./configuration";
+
